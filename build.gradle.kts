@@ -1,7 +1,3 @@
-import org.gradle.api.JavaVersion
-import org.gradle.api.plugins.JavaBasePlugin
-import org.gradle.api.plugins.JavaPluginConvention
-
 /*
  * Copyright 2014 Netflix, Inc.
  *
@@ -22,17 +18,22 @@ buildscript {
   repositories {
     mavenCentral()
     jcenter()
-    maven { url "https://dl.bintray.com/spinnaker/gradle/" }
-    maven { url "https://plugins.gradle.org/m2/" }
+    gradlePluginPortal()
+    maven(url = "https://dl.bintray.com/spinnaker/gradle/")
   }
   dependencies {
     classpath("com.netflix.spinnaker.gradle:spinnaker-dev-plugin:5.2.0")
-    classpath("com.netflix.nebula:nebula-kotlin-plugin:1.3.21")
-    classpath("org.jetbrains.kotlin:kotlin-allopen:1.3.21")
   }
 }
 
+plugins {
+  id("nebula.kotlin") version "1.3.21" apply false
+  id("org.jetbrains.kotlin.plugin.allopen") version "1.3.21" apply false
+}
+
 allprojects {
+  apply(plugin = "spinnaker.base-project")
+
   group = "com.netflix.spinnaker.kork"
 
   repositories {

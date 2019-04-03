@@ -40,14 +40,14 @@ include(
 
 rootProject.name = "kork"
 
-def setBuildFile(project) {
-  project.buildFileName = "${project.name}.gradle"
-  project.children.forEach {
-    setBuildFile(it)
+fun ProjectDescriptor.setBuildFile() {
+  buildFileName = "$name.gradle.kts"
+  children.forEach {
+    it.setBuildFile()
   }
 }
 
 rootProject.children.forEach {
-  setBuildFile(it)
+  it.setBuildFile()
 }
 

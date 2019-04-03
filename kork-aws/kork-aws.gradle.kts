@@ -13,22 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-apply plugin: "java-library"
-apply plugin: "groovy"
+plugins {
+  `java-library`
+  groovy
+}
 
 dependencies {
   api(platform(project(":kork-dependencies")))
 
-  implementation "org.codehaus.groovy:groovy-all"
-  implementation "com.hubspot.jinjava:jinjava"
-  implementation "org.springframework.boot:spring-boot-autoconfigure"
-  implementation "com.amazonaws:aws-java-sdk-core"
-  implementation "com.amazonaws:aws-java-sdk"
-  implementation 'com.jcraft:jsch.agentproxy.jsch:0.0.9'
-  implementation 'com.jcraft:jsch.agentproxy.connector-factory:0.0.9'
-  implementation 'com.aestasit.infrastructure.sshoogr:sshoogr:0.9.25'
+  implementation("org.codehaus.groovy:groovy-all")
+  implementation("com.hubspot.jinjava:jinjava")
+  implementation("org.springframework.boot:spring-boot-autoconfigure")
+  implementation("com.amazonaws:aws-java-sdk-core")
+  implementation("com.amazonaws:aws-java-sdk")
+  implementation("com.jcraft:jsch.agentproxy.jsch:0.0.9")
+  implementation("com.jcraft:jsch.agentproxy.connector-factory:0.0.9")
+  implementation("com.aestasit.infrastructure.sshoogr:sshoogr:0.9.25")
 
-  testImplementation "org.spockframework:spock-core"
-  testRuntimeOnly "cglib:cglib-nodep"
-  testRuntimeOnly "org.objenesis:objenesis"
+  testImplementation("org.spockframework:spock-core")
+  testRuntimeOnly("cglib:cglib-nodep")
+  testRuntimeOnly("org.objenesis:objenesis")
 }

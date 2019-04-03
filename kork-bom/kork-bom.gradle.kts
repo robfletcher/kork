@@ -1,5 +1,7 @@
-apply plugin: "java-platform"
-apply plugin: "maven-publish"
+plugins {
+  `java-platform`
+  `maven-publish`
+}
 
 javaPlatform {
   allowDependencies()
@@ -7,8 +9,8 @@ javaPlatform {
 
 publishing {
   publications {
-    nebula(MavenPublication) {
-      from components.javaPlatform
+    named<MavenPublication>("nebula") {
+      from(components["javaPlatform"])
     }
   }
 }

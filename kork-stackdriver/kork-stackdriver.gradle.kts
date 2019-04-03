@@ -13,19 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-apply plugin: "java-library"
+plugins {
+  `java-library`
+}
 
 dependencies {
   api(platform(project(":kork-dependencies")))
 
-  implementation "io.reactivex:rxjava"
-  implementation "com.netflix.spectator:spectator-api"
-  implementation "com.netflix.spectator:spectator-web-spring"
-  implementation "com.google.apis:google-api-services-monitoring"
+  implementation("io.reactivex:rxjava")
+  implementation("com.netflix.spectator:spectator-api")
+  implementation("com.netflix.spectator:spectator-web-spring")
+  implementation("com.google.apis:google-api-services-monitoring")
 
   // Force component bringing this in to already support spring boot configure.
-  compileOnly "org.springframework.boot:spring-boot-autoconfigure"
+  compileOnly("org.springframework.boot:spring-boot-autoconfigure")
 
-  testImplementation "org.mockito:mockito-core"
-  testImplementation "junit:junit"
+  testImplementation("org.mockito:mockito-core")
+  testImplementation("junit:junit")
 }
